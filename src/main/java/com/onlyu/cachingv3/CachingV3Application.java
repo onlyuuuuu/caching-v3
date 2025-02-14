@@ -1,13 +1,14 @@
-package com.onlyu.cachingv2;
+package com.onlyu.cachingv3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CachingV2Application {
+public class CachingV3Application
+{
 
     public static void main(String[] args) {
-        SpringApplication.run(CachingV2Application.class, args);
+        SpringApplication.run(CachingV3Application.class, args);
     }
 
 }
