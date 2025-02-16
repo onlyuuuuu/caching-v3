@@ -1,7 +1,6 @@
 package com.onlyu.cachingv3;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface JobService {
 
