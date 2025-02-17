@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- We set JVM heap as Xmx2g (On-Heap) -->
+<!-- More on Off-Heap: https://docs.oracle.com/en/java/javase/23/core/heap-and-heap-memory.html -->
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         name="ehcache-v2-cache-manager-00"
+         updateCheck="true"
+         monitoring="autodetect"
+         dynamicConfig="true"
+         maxBytesLocalHeap="2g"
+         maxBytesLocalOffHeap="2g"
+         maxBytesLocalDisk="2g">
+
+    <diskStore path="java.io.tmpdir/caching-v2"/>
+    <cacheManagerEventListenerFactory class="com.onlyu.cachingv2.CachingManagerEventListenerFactory"/>
+
+    <cache
+            name="defaultCacheV2"
+            maxEntriesLocalHeap="0"
+            maxEntriesLocalDisk="0"
+            eternal="false"
+            diskExpiryThreadIntervalSeconds="300"
+            diskSpoolBufferSizeMB="2048"
+            timeToIdleSeconds="60"
+            timeToLiveSeconds="120"
+            clearOnFlush="true"
+            memoryStoreEvictionPolicy="LFU"
+            transactionalMode="off"
+            overflowToOffHeap="false">
+        <cacheEventListenerFactory class="com.onlyu.cachingv2.CachingEventListenerFactory"/>
+        <persistence strategy="localTempSwap"/>
+    </cache>
+
+</ehcache>
+
